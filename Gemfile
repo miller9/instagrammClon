@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Gems for the clon project
 gem 'haml', '~> 5.0', '>= 5.0.4'
-
+gem 'simple_form', '~> 4.1'
 
 
 group :development, :test do
