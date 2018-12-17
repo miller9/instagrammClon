@@ -1,5 +1,6 @@
 class PicsController < ApplicationController
 	before_action :find_pic, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@pics = Pic.all.order("created_at DESC")
@@ -18,7 +19,7 @@ class PicsController < ApplicationController
 		if @pic.save
 			redirect_to @pic, notice: "Yesss! It was posted!"
 		else
-			render "new"
+			render 'new'
 		end
 	end
 
@@ -38,7 +39,7 @@ class PicsController < ApplicationController
 		redirect_to root_path
 	end
 
-	
+
 
 	private
 		def pic_params
